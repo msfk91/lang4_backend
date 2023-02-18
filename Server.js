@@ -19,13 +19,22 @@ app.use("/accounts", userRoutes)
 app.use("/courses", courseRoutes)
 app.use("/translations", translationRoutes)
 
+const port = () =>{
+    if(!process.env.PORT){
+        return 5000
+    }else{
+        return process.env.PORT
+    }
+}
+
 //connect to db
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
-        app.listen(process.env.PORT, 
+        
+        app.listen(port(), 
             () => console.log(
                 "Connected to Db and listening on port", 
-                process.env.PORT 
+                port() 
             )
         )
     })
