@@ -27,6 +27,8 @@ const port = () =>{
     }
 }
 
+mongoose.set("strictQuery", true)
+
 //connect to db
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
