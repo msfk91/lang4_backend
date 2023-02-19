@@ -30,7 +30,7 @@ const createCourse = async (req, res)=>{
             const course = await Course.create({ courseName, userID, language, topic, translation_sets: 0 })
             result={
                     message:"Course created. Go to My Courses and click translate to make translations for the course.",
-                    status: "success",
+                    status: "success2",
                     course
             }
         }
